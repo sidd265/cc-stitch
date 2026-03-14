@@ -1,0 +1,54 @@
+{
+  "name": "cc-stitch",
+  "version": "0.1.0",
+  "description": "Stitch Claude Code session logs into DOCX, PDF, or Markdown documents with analytics",
+  "type": "module",
+  "bin": {
+    "cc-stitch": "./bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidd265/cc-stitch.git"
+  },
+  "homepage": "https://github.com/sidd265/cc-stitch#readme",
+  "bugs": {
+    "url": "https://github.com/sidd265/cc-stitch/issues"
+  },
+  "scripts": {
+    "start": "node bin/cli.js",
+    "test": "vitest"
+  },
+  "keywords": ["claude", "claude-code", "session", "export", "docx", "pdf", "markdown", "analytics", "cli", "ai"],
+  "author": "Siddharth Goud",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^13.1.0",
+    "@inquirer/prompts": "^7.5.0",
+    "chalk": "^5.4.1",
+    "ora": "^8.2.0",
+    "fast-glob": "^3.3.3",
+    "date-fns": "^4.1.0",
+    "docx": "^9.4.1",
+    "pdf-lib": "^1.17.1"
+  },
+  "peerDependencies": {
+    "@anthropic-ai/sdk": ">=0.30.0"
+  },
+  "peerDependenciesMeta": {
+    "@anthropic-ai/sdk": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "vitest": "^3.1.1"
+  }
+}
