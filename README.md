@@ -1,4 +1,4 @@
-# cc-stitch
+# claude-stitch
 
 Stitch Claude Code session logs into documents with analytics.
 
@@ -7,56 +7,56 @@ Discovers all your Claude Code sessions from `~/.claude/projects/`, stitches the
 ## Install
 
 ```bash
-npm install -g cc-stitch
+npm install -g claude-stitch
 ```
 
 ## Usage
 
 ```bash
 # Interactive mode -- pick a project and export
-cc-stitch
+claude-stitch
 
 # List all discovered projects
-cc-stitch list
+claude-stitch list
 
 # Export a specific project to Markdown
-cc-stitch --path ~/.claude/projects/my-project --format md
+claude-stitch --path ~/.claude/projects/my-project --format md
 
 # Export all formats at once
-cc-stitch --path ~/.claude/projects/my-project --format all
+claude-stitch --path ~/.claude/projects/my-project --format all
 
 # Show analytics dashboard only
-cc-stitch dashboard --path ~/.claude/projects/my-project
+claude-stitch dashboard --path ~/.claude/projects/my-project
 
 # Compact export (user prompts + Claude text only, no tool calls)
-cc-stitch --path ~/.claude/projects/my-project --format md --compact
+claude-stitch --path ~/.claude/projects/my-project --format md --compact
 
 # Filter messages by keyword
-cc-stitch --path ~/.claude/projects/my-project --format md --grep "database"
+claude-stitch --path ~/.claude/projects/my-project --format md --grep "database"
 
 # Filter by date range
-cc-stitch --path ~/.claude/projects/my-project --since 2025-01-01 --until 2025-02-01
+claude-stitch --path ~/.claude/projects/my-project --since 2025-01-01 --until 2025-02-01
 
 # Include full tool call inputs/outputs (not truncated)
-cc-stitch --path ~/.claude/projects/my-project --format md --full
+claude-stitch --path ~/.claude/projects/my-project --format md --full
 
 # Add AI-generated summary (requires @anthropic-ai/sdk + ANTHROPIC_API_KEY)
-cc-stitch --path ~/.claude/projects/my-project --format docx --summarize
+claude-stitch --path ~/.claude/projects/my-project --format docx --summarize
 
 # Skip the terminal dashboard
-cc-stitch --path ~/.claude/projects/my-project --format md --no-dashboard
+claude-stitch --path ~/.claude/projects/my-project --format md --no-dashboard
 
 # Custom output path
-cc-stitch --path ~/.claude/projects/my-project --format docx -o report.docx
+claude-stitch --path ~/.claude/projects/my-project --format docx -o report.docx
 ```
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `cc-stitch` | Interactive project picker + export |
-| `cc-stitch list` | List all discovered Claude Code projects |
-| `cc-stitch dashboard` | Show analytics dashboard for a project |
+| `claude-stitch` | Interactive project picker + export |
+| `claude-stitch list` | List all discovered Claude Code projects |
+| `claude-stitch dashboard` | Show analytics dashboard for a project |
 
 ## Options
 
@@ -91,7 +91,7 @@ Install the Anthropic SDK and set your API key:
 ```bash
 npm install @anthropic-ai/sdk
 export ANTHROPIC_API_KEY=your-key
-cc-stitch --path ~/.claude/projects/my-project --summarize
+claude-stitch --path ~/.claude/projects/my-project --summarize
 ```
 
 ## Output Formats

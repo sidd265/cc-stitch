@@ -19,7 +19,7 @@ const program = new Command();
 program.enablePositionalOptions();
 
 program
-  .name('cc-stitch')
+  .name('claude-stitch')
   .description('Stitch Claude Code session logs into documents with analytics')
   .version('0.1.0')
   .option('-p, --path <path>', 'Path to a specific project directory or Claude projects root')

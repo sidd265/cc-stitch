@@ -39,7 +39,7 @@ export function renderDashboard(projectName, analytics) {
   // ── Header ─────────────────────────────────────────────────
   out.push('');
   out.push(hLine(B.tl, B.tr));
-  out.push(row(centerText('cc-stitch', IW, t.heading)));
+  out.push(row(centerText('claude-stitch', IW, t.heading)));
   out.push(row(centerText(truncPath(projectName, IW - 4), IW, t.bright)));
   out.push(hLine(B.lt, B.rt));
 

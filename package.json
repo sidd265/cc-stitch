@@ -1,10 +1,10 @@
 {
-  "name": "cc-stitch",
+  "name": "claude-stitch",
   "version": "0.1.0",
   "description": "Stitch Claude Code session logs into DOCX, PDF, or Markdown documents with analytics",
   "type": "module",
   "bin": {
-    "cc-stitch": "./bin/cli.js"
+    "claude-stitch": "./bin/cli.js"
   },
   "files": [
     "bin/",
