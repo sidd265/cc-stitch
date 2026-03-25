@@ -1,6 +1,6 @@
 {
   "name": "claude-stitch",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Stitch Claude Code session logs into DOCX, PDF, or Markdown documents with analytics",
   "type": "module",
   "bin": {
