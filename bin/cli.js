@@ -6,6 +6,7 @@ import ora from 'ora';
 import { select } from '@inquirer/prompts';
 import { writeFile } from 'fs/promises';
 import { join, resolve, basename } from 'path';
+import { homedir } from 'os';
 import { discoverProjects } from '../src/discovery.js';
 import { stitchSessions } from '../src/stitcher.js';
 import { computeAnalytics } from '../src/analytics.js';
@@ -205,7 +206,9 @@ async function runDashboardCmd(opts) {
 }
 
 async function resolveProject(inputPath) {
-  const absPath = resolve(inputPath);
+  // Expand ~ to home directory (Windows CMD doesn't do this)
+  const expanded = inputPath.replace(/^~([/\\]|$)/, homedir() + '$1');
+  const absPath = resolve(expanded);
 
   // First: check if path itself contains .jsonl files (it's a project dir)
   try {
@@ -263,14 +266,17 @@ async function resolveProject(inputPath) {
     return await pickFromList(projects);
   }
 
-  // Try looking up by the decoded path matching
+  // Try looking up by name or path matching against all discovered projects
   const allProjects = await discoverProjects();
+  const input = inputPath.toLowerCase();
   const match = allProjects.find(p =>
-    p.decodedPath === absPath || p.path === absPath || p.folderName === basename(absPath)
+    p.decodedPath === absPath || p.path === absPath || p.folderName === basename(absPath) ||
+    p.name.toLowerCase() === input || p.folderName.toLowerCase().includes(input.replace(/[/\\]/g, '-'))
   );
   if (match) return match;
 
-  console.log(chalk.yellow(`No sessions found at: ${absPath}`));
+  console.log(chalk.yellow(`No sessions found for: ${inputPath}`));
+  console.log(chalk.dim(`Tip: use a project name from "claude-stitch list", e.g. claude-stitch -p opus`));
   return null;
 }
 
