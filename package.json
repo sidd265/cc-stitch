@@ -1,6 +1,6 @@
 {
   "name": "claude-stitch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Stitch Claude Code session logs into DOCX, PDF, or Markdown documents with analytics",
   "type": "module",
   "bin": {
@@ -27,7 +27,18 @@
     "start": "node bin/cli.js",
     "test": "vitest"
   },
-  "keywords": ["claude", "claude-code", "session", "export", "docx", "pdf", "markdown", "analytics", "cli", "ai"],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "session",
+    "export",
+    "docx",
+    "pdf",
+    "markdown",
+    "analytics",
+    "cli",
+    "ai"
+  ],
   "author": "Siddharth Goud",
   "license": "MIT",
   "dependencies": {

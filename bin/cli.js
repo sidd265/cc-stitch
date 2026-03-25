@@ -210,6 +210,16 @@ async function resolveProject(inputPath) {
   const expanded = inputPath.replace(/^~([/\\]|$)/, homedir() + '$1');
   const absPath = resolve(expanded);
 
+  // If input looks like a short name (no slashes/backslashes), try name lookup first
+  if (!inputPath.includes('/') && !inputPath.includes('\\') && !inputPath.includes(':')) {
+    const allProjects = await discoverProjects();
+    const input = inputPath.toLowerCase();
+    const match = allProjects.find(p =>
+      p.name.toLowerCase() === input || p.folderName.toLowerCase().includes(input.replace(/[/\\]/g, '-'))
+    );
+    if (match) return match;
+  }
+
   // First: check if path itself contains .jsonl files (it's a project dir)
   try {
     const fg = (await import('fast-glob')).default;
